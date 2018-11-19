@@ -69,7 +69,12 @@ if(filename === 'other.html'){
       return "";
     }
     
-    var last_date = getCookie('lastDate');
+    
+    }
+}
+opt.selected=true;
+
+var last_date = getCookie('lastDate');
     if(last_date){
       docuent.getElementById('cookie').textContent='前回訪れた時間:' + last_date;
     }else{
@@ -81,9 +86,6 @@ if(filename === 'other.html'){
   
     document.getElementById('remove_cookie').onsubmit=function(){
       setCookie('lastDate',"",0);
-    }
-}
-opt.selected=true;
 
 document.getElementById('form').select.onchange=function(){
   location.href=document.getElementById('form').select.value;

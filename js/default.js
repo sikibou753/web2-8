@@ -1,4 +1,15 @@
-var separate_time =function(time){
+function getFileName(){
+  return window.location.href.split('/').pop();
+}
+
+var filename=getFileName();
+var opt;
+if(filename === 'other.html'){
+  opt=document.querySelector('option[value="other.html"]');
+}else{
+  opt=document.querySelector('option[value="index.html"]');
+  
+  var separate_time =function(time){
   var sec =Math.floor((time/1000)%60);
   var min =Math.floor((time/1000/60)%60);
   var hours =Math.floor((time/1000/60/60)%24);
@@ -24,17 +35,6 @@ var refresh=function(){
   setTimeout(update,1000);
 }
 update();
-
-function getFileName(){
-  return window.location.href.split('/').pop();
-}
-
-var filename=getFileName();
-var opt;
-if(filename === 'other.html'){
-  opt=document.querySelector('option[value="other.html"]');
-}else{
-  opt=document.querySelector('option[value="index.html"]');
 }
 opt.selected=true;
 

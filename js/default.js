@@ -9,6 +9,13 @@ if(filename === 'other.html'){
 }else{
   opt=document.querySelector('option[value="index.html"]');
   
+  var thmubs = document.querySelectorAll('.thumb');
+  for(idx in thmubs){
+    thmubs[idx].onclick = function(){
+      document.getElementById("bigimg").src='img/' + this.dataset.image + '.jpg';
+    }
+  }
+  
   var separate_time =function(time){
   var sec =Math.floor((time/1000)%60);
   var min =Math.floor((time/1000/60)%60);

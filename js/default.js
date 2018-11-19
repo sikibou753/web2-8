@@ -2,19 +2,19 @@ function getFileName(){
   return window.location.href.split('/').pop();
 }
 
+ var thmubs = document.querySelectorAll('.thumb');
+  for(idx in thmubs){
+    thmubs[idx].onclick = function(){
+      document.getElementById("bigimg").src='img/' + this.dataset.image + '.jpg';
+    }
+  }
+
 var filename=getFileName();
 var opt;
 if(filename === 'other.html'){
   opt=document.querySelector('option[value="other.html"]');
 }else{
   opt=document.querySelector('option[value="index.html"]');
-  
-  var thmubs = document.querySelectorAll('.thumb');
-  for(idx in thmubs){
-    thmubs[idx].onclick = function(){
-      document.getElementById("bigimg").src='img/' + this.dataset.image + '.jpg';
-    }
-  }
   
   var separate_time =function(time){
   var sec =Math.floor((time/1000)%60);

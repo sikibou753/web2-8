@@ -16,7 +16,7 @@ var update = function(){
     counter[3] + '日' + 
     counter[2] + '時間' + 
     counter[1] + '分' + 
-    counter[0] + '秒' + ;
+    counter[0] + '秒' ;
 refresh();
 }
 

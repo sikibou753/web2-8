@@ -42,10 +42,8 @@ if(filename === 'other.html'){
       setTimeout(update,1000);
     }
     update();
-}
-opt.selected=true;
-
-function setCookie(c_name,value,expiredays){
+  
+  function setCookie(c_name,value,expiredays){
       var extiee=new Date().getTime();
       var cltime=new Date(extime+(60*60*24*1000*expiredays));
       var exdate=cltime.toUTCString();
@@ -78,6 +76,8 @@ function setCookie(c_name,value,expiredays){
       return "";
     }
     
+}
+opt.selected=true;
 
 document.getElementById('form').select.onchange=function(){
   location.href=document.getElementById('form').select.value;

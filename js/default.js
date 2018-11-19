@@ -9,34 +9,7 @@ if(filename === 'other.html'){
 }else{
   opt=document.querySelector('option[value="index.html"]');
   
-  var separate_time =function(time){
-  var sec =Math.floor((time/1000)%60);
-  var min =Math.floor((time/1000/60)%60);
-  var hours =Math.floor((time/1000/60/60)%24);
-  var days =Math.floor(time/1000/60/60/24);
-  return [sec,min,hours,days];
-}
-
-    var update = function(){
-      var now =new Date();
-      var target =new Date(2020,7,24,0,0,0,0);
-      var diff =target.getTime() -now.getTime();
-      var counter =separate_time(diff);
-      document.getElementById('countdown').textContent=
-        '東京オリンピックまであと　'+
-        counter[3] + '日' + 
-        counter[2] + '時間' + 
-        counter[1] + '分' + 
-        counter[0] + '秒' ;
-    refresh();
-    }
-
-    var refresh=function(){
-      setTimeout(update,1000);
-    }
-    update();
-  
-    function setCookie(c_name,value,expiredays){
+  function setCookie(c_name,value,expiredays){
       var extiee=new Date().getTime();
       var cltime=new Date(extime+(60*60*24*1000*expiredays));
       var exdate=cltime.toUTCString();
@@ -69,12 +42,7 @@ if(filename === 'other.html'){
       return "";
     }
     
-    
-    }
-}
-opt.selected=true;
-
-var last_date = getCookie('lastDate');
+    var last_date = getCookie('lastDate');
     if(last_date){
       docuent.getElementById('cookie').textContent='前回訪れた時間:' + last_date;
     }else{
@@ -86,6 +54,36 @@ var last_date = getCookie('lastDate');
   
     document.getElementById('remove_cookie').onsubmit=function(){
       setCookie('lastDate',"",0);
+    }
+  
+  var separate_time =function(time){
+  var sec =Math.floor((time/1000)%60);
+  var min =Math.floor((time/1000/60)%60);
+  var hours =Math.floor((time/1000/60/60)%24);
+  var days =Math.floor(time/1000/60/60/24);
+  return [sec,min,hours,days];
+}
+
+    var update = function(){
+      var now =new Date();
+      var target =new Date(2020,7,24,0,0,0,0);
+      var diff =target.getTime() -now.getTime();
+      var counter =separate_time(diff);
+      document.getElementById('countdown').textContent=
+        '東京オリンピックまであと　'+
+        counter[3] + '日' + 
+        counter[2] + '時間' + 
+        counter[1] + '分' + 
+        counter[0] + '秒' ;
+    refresh();
+    }
+
+    var refresh=function(){
+      setTimeout(update,1000);
+    }
+    update();
+}
+opt.selected=true;
 
 document.getElementById('form').select.onchange=function(){
   location.href=document.getElementById('form').select.value;
